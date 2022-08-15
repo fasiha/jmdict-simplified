@@ -110,6 +110,7 @@ declare function tags:convert-entity($word-id as xs:string, $text as xs:string) 
   case "irregular okurigana usage" return "io"
   case "word containing out-dated kanji or kanji usage" return "oK"
   case "rarely-used kanji form" return "rK"
+  case "search-only kanji form" return "sK"
   case "abbreviation" return "abbr"
   case "archaic" return "arch"
   case "character" return "char"
@@ -259,7 +260,7 @@ declare function tags:convert-entity($word-id as xs:string, $text as xs:string) 
   case "Ichidan verb - zuru verb (alternative form of -jiru verbs)" return "vz"
   case "gikun (meaning as reading) or jukujikun (special kanji reading)" return "gikun"
   case "out-dated or obsolete kana usage" return "ok"
-  case "word usually written using kanji alone" return "uK"
+  case "search-only kana form" return "sk"
   default return error(
     xs:QName("unknown-tag"),
     concat("Unknown tag '", $text, "' on entity ", $word-id)
@@ -370,6 +371,7 @@ declare variable $tags:tags := <j:map key="tags">
   <j:string key="io">irregular okurigana usage</j:string>
   <j:string key="oK">word containing out-dated kanji or kanji usage</j:string>
   <j:string key="rK">rarely-used kanji form</j:string>
+  <j:string key="sK">search-only kanji form</j:string>
   <j:string key="abbr">abbreviation</j:string>
   <j:string key="arch">archaic</j:string>
   <j:string key="char">character</j:string>
@@ -519,5 +521,5 @@ declare variable $tags:tags := <j:map key="tags">
   <j:string key="vz">Ichidan verb - zuru verb (alternative form of -jiru verbs)</j:string>
   <j:string key="gikun">gikun (meaning as reading) or jukujikun (special kanji reading)</j:string>
   <j:string key="ok">out-dated or obsolete kana usage</j:string>
-  <j:string key="uK">word usually written using kanji alone</j:string>
+  <j:string key="sk">search-only kana form</j:string>
 </j:map>;
